@@ -258,6 +258,157 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/24/Android透明状态栏/" itemprop="url">
+                  Android透明状态栏
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-24T11:43:57+08:00" content="2016-08-24">
+              2016-08-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/24/Android透明状态栏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/Android透明状态栏/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Android透明状态栏"><a href="#Android透明状态栏" class="headerlink" title="Android透明状态栏"></a>Android透明状态栏</h1><p>标签（空格分隔）： 未分类</p>
+<hr>
+<p>先上代码：<br><strong>透明状态栏：</strong></p>
+<pre><code>if (Build.VERSION.SDK_INT &gt;= 21) {           //只有5.0以上的系统才支持
+    View decorView = getWindow().getDecorView();
+    int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN 
+            |View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+    decorView.setSystemUiVisibility(option);   //设置系统UI元素的可见性
+    getWindow().setStatusBarColor(Color.TRANSPARENT);   //将状态栏设置成透明色
+}
+ActionBar actionBar = getSupportActionBar();
+actionBar.hide();   //隐藏ActionBar
+</code></pre><p><strong>透明状态栏+透明底部导航栏</strong></p>
+<pre><code>if (Build.VERSION.SDK_INT &gt;= 21) {
+    View decorView = getWindow().getDecorView();
+    int option = View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION   //隐藏底部导航栏
+            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+    decorView.setSystemUiVisibility(option);
+    getWindow().setNavigationBarColor(Color.TRANSPARENT);    //将导航栏设置为透明
+    getWindow().setStatusBarColor(Color.TRANSPARENT);
+}
+ActionBar actionBar = getSupportActionBar();
+actionBar.hide();
+</code></pre><p>总结：最主要的一个函数<strong>setSystemUiVisibility()</strong>  设置系统UI的可见性</p>
+<hr>
+<p>其他：<br><strong>全屏模式：</strong></p>
+<pre><code>@Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus &amp;&amp; Build.VERSION.SDK_INT &gt;= 19) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
+</code></pre><p><strong>隐藏ActionBar的三种方法：</strong><br>1、修改主题（推荐）</p>
+<pre><code>android:theme=&quot;@style/AppTheme&quot;
+&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;/&gt;
+</code></pre><p>2、调用hide隐藏</p>
+<pre><code>ActionBar actionBar = getActionBar();
+//ActionBar actionBar = getSupportActionBar();(v7包)
+actionBar.hide();
+</code></pre><p>3、继承Activity<br>Activity继承AppCompatActivity是默认显示ActionBar的</p>
+<p><em>关于ActionBar：3.0的时候引入ActionBar 5.0的时候推荐使用ToolBar了</em></p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/23/Start/" itemprop="url">
                   Start
                 </a>
@@ -382,7 +533,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -392,7 +543,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
