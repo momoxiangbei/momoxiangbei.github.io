@@ -258,6 +258,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/25/Android-style/" itemprop="url">
+                  Android style
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-25T18:28:07+08:00" content="2016-08-25">
+              2016-08-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/25/Android-style/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/Android-style/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>style就是View属性的集合</strong><br>resources为根目录，在values目录下的文件根目录都必须是resources</p>
+<p>例如：</p>
+<pre><code>&lt;resources&gt;
+    &lt;style name=&quot;ParentText&quot;&gt;
+        &lt;item name=&quot;android:background&quot;&gt;#ffdcdc&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;style name=&quot;NomalTest&quot; parent=&quot;ParentText&quot;&gt;
+        &lt;item name=&quot;android:textSize&quot;&gt;18sp&lt;/item&gt;
+    &lt;/style&gt;
+&lt;/resources&gt;
+
+&lt;TextView
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;还没想好写什么&quot;
+    style=&quot;@style/NomalTest&quot; /&gt;
+</code></pre><p>其中<br>parent是继承的关系，也可以是”父类.子类”的形式，例如style中name=”ParentText.NomalTest”<br>item标签的键值对和layout中写的各种属性作用是一样的</p>
+<hr>
+<p><strong>theme也是用style标签，就是设置了一套系统的View属性</strong><br>例如：android:theme=”@style/AppTheme”<br>常用的parent theme:</p>
+<pre><code>&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light&quot;/&gt;  //白色ActionBar
+&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.DarkActionBar&quot;/&gt;   //黑色ActionBar
+&lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;/&gt;   //没有ActionBar
+</code></pre><p>其他的可以自己试试</p>
+<p>注意：使用这种主题android:Theme.Holo.Light.DarkActionBar，只能用继承Activity，而不能继承AppCompatActivity，会报错的</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/24/Android透明状态栏/" itemprop="url">
                   Android透明状态栏
                 </a>
@@ -531,7 +655,7 @@ actionBar.hide();
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -541,7 +665,7 @@ actionBar.hide();
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
